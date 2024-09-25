@@ -1,8 +1,23 @@
+import React, { useState, useEffect } from 'react';
+
 import logo from './logo.svg';
 import './App.css';
 import CurrentDate from './components/CurrentDate';
 
+
 function App() {
+  const [count, setCount] = useState(0);
+  const [date,setDate] = useState(new Date().toISOString());
+
+  const handleClick = () => {
+    setCount(count + 1);
+    setDate(new Date().toISOString());
+  };
+
+  useEffect(() => {
+	
+  }, [count]);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,7 +33,9 @@ function App() {
         >
           Learn React
         </a>
-       <CurrentDate />
+        <p>Count: {count} on {date}</p>
+        <button id="refreshButton" onClick={handleClick}>Increment</button>	
+        <CurrentDate />
       </header>
     </div>
   );
