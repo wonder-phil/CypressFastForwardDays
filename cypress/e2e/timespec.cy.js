@@ -16,31 +16,26 @@ describe("Learn React checker", () => {
 describe("urls basic", () => {
 
         beforeEach(() => {
+		cy.clearCookies();
+		cy.clearLocalStorage();
+		cy.reload(true);
+
 		cy.clock(new Date(1929, 0, x).getTime());
 		x = x+1;
         });
 
         it("Checks the first date", () => {
-		cy.clearCookies();
-		cy.clearLocalStorage();
-		cy.reload(true);
         	cy.visit(url);
 	        cy.contains("1/1/1929");
 	});
 
 
         it("Checks the second date", () => {
-		cy.clearCookies();
-		cy.clearLocalStorage();
-		cy.reload(true);
         	cy.visit(url);
 	        cy.contains("1/2/1929");
 	});
 
         it("Checks the third date", () => {
-		cy.clearCookies();
-		cy.clearLocalStorage();
-		cy.reload(true);
         	cy.visit(url);
 	        cy.contains("1/3/1929");
         });
