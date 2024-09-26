@@ -7,11 +7,11 @@ import CurrentDate from './components/CurrentDate';
 
 function App() {
   const [count, setCount] = useState(0);
-  const [date,setDate] = useState(new Date().toISOString());
+  const [date,setDate] = useState(new Date().toISOString().split('T')[0]);
 
   const handleClick = () => {
     setCount(count + 1);
-    setDate(new Date().toISOString());
+    setDate(new Date().toISOString().split('T')[0]);
   };
 
   useEffect(() => {

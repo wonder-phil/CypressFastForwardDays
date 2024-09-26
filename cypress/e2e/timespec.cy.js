@@ -53,18 +53,18 @@ describe("run non-isolated clock fast", {testIsolation: false}, () => {
         });
 
         beforeEach(() => {
-		cy.clock();
+			cy.clock();
         });
 
         it("Checks the first date", () => {
-        	cy.tick(dayInSeconds*1000);
-		cy.get('#refreshButton').click();
-	        cy.contains("1970-01-02");
+        	cy.tick((dayInSeconds -1)*1000);
+			cy.get('#refreshButton').click();
+	        cy.contains("1970-01-01");
         });
 
         it("Checks the second date", () => {
         	cy.tick(dayInSeconds*1000);
-		cy.get('#refreshButton').click();
+			cy.get('#refreshButton').click();
 	        cy.contains("1970-01-02");
         });
 
