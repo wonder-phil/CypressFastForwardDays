@@ -1,7 +1,9 @@
 // server.test.js
-
+//
+// Running eqwell-backend for testing
+//
 const request = require('supertest');
-const app = require('./index');
+const app = require('./index'); // backend server
 const http = require('http');
 const moment = require('moment');
 
@@ -10,7 +12,7 @@ let spy;
 
 let originalDateNow;
 
-jest.setTimeout(1000 * 60 * 30); // 30 minutes
+jest.setTimeout(1000 * 60 * 30); // 30 minutes for running the server so we can test the frontend agains this
 
 describe('Testing endpoints with mocked dates', () => {
   const originalDate = Date;
@@ -26,6 +28,7 @@ describe('Testing endpoints with mocked dates', () => {
       // Return a custom value for the diff
       return 90;
     });
+    
     server = http.createServer(app);
   });
 
